@@ -59,12 +59,12 @@ export enum DifficultyLevel {
 }
 
 export enum CareerType {
-  LAWYER = 'lawyer',
-  DOCTOR = 'doctor',
-  ENGINEER = 'engineer',
+  LAW = 'law',
+  IT = 'it',
+  AVIATION = 'aviation',
+  MEDICAL = 'medical',
   POLICE = 'police',
-  TEACHER = 'teacher',
-  BUSINESS = 'business'
+  CUSTOM = 'custom'
 }
 
 export interface GameState {

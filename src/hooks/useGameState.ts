@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { User, GameSession, Question, DifficultyLevel, QuestionCategory } from '@/types/game';
+import { User, GameSession, Question, DifficultyLevel, QuestionCategory, CareerType } from '@/types/game';
 import { 
   loadUser, 
   saveUser, 
@@ -49,12 +49,12 @@ export const useGameState = () => {
   }, [user]);
 
   // Start new game session
-  const startGameSession = useCallback((category: QuestionCategory) => {
+  const startGameSession = useCallback((category: QuestionCategory, career?: CareerType, customCareerName?: string) => {
     if (!user) return null;
 
     const difficulty = getDifficultyForAge(user.age);
     const questions = Array.from({ length: 10 }, () => 
-      generateQuestion(category, difficulty)
+      generateQuestion(category, difficulty, career, customCareerName)
     );
 
     const session: GameSession = {
@@ -192,6 +192,7 @@ export const useGameState = () => {
     getProgress,
   };
 };
+
 
 
 

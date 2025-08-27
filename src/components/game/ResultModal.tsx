@@ -38,8 +38,7 @@ export const ResultModal: React.FC<ResultModalProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-          onClick={onNext}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100]"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -47,9 +46,9 @@ export const ResultModal: React.FC<ResultModalProps> = ({
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="max-w-md w-full"
+            className="max-w-md w-full relative z-[110]"
           >
-            <Card padding="lg" className="text-center relative overflow-hidden">
+            <Card padding="lg" className="text-center relative overflow-hidden z-[120]">
               {/* Background Animation */}
               {isCorrect && (
                 <motion.div
@@ -145,13 +144,21 @@ export const ResultModal: React.FC<ResultModalProps> = ({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="space-y-3"
+                className="space-y-3 relative z-[130]"
               >
                 <Button
-                  onClick={onNext}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Continue button clicked!'); // Debug log
+                    if (onNext) {
+                      onNext();
+                    }
+                  }}
                   fullWidth
                   size="lg"
                   variant={isCorrect ? 'default' : 'secondary'}
+                  type="button"
                 >
                   {isCorrect ? 'Next Question' : 'Continue'}
                 </Button>

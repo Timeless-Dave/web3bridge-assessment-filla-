@@ -12,8 +12,9 @@ import { ProgressBar } from '@/components/ui/ProgressBar';
 import { GemCounter } from '@/components/game/GemCounter';
 import { XPBar } from '@/components/game/XPBar';
 import { useGameState } from '@/hooks/useGameState';
-import { QuestionCategory } from '@/types/game';
+import { QuestionCategory, CareerType } from '@/types/game';
 import { fadeInUp, stagger } from '@/utils/animations';
+import { CareerSelectionModal } from '@/components/game/CareerSelectionModal';
 
 const gameCategories = [
   {
@@ -57,6 +58,7 @@ export default function HomePage() {
   const [showWelcome, setShowWelcome] = useState(false);
   const [userAge, setUserAge] = useState('');
   const [userName, setUserName] = useState('');
+  const [showCareerSelection, setShowCareerSelection] = useState(false);
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -66,15 +68,29 @@ export default function HomePage() {
 
   const handleCreateUser = (e: React.FormEvent) => {
     e.preventDefault();
-    const age = parseInt(userAge);
-    if (age >= 3 && age <= 100) {
-      initializeUser(age, userName || undefined);
+    const age = parseFloat(userAge);
+    if (age >= 2 && age <= 15) {
+      initializeUser(Math.round(age), userName || undefined);
       setShowWelcome(false);
     }
   };
 
   const handlePlayCategory = (category: QuestionCategory) => {
-    router.push(`/game?category=${category}`);
+    if (category === QuestionCategory.CAREER) {
+      setShowCareerSelection(true);
+    } else {
+      router.push(`/game?category=${category}`);
+    }
+  };
+
+  const handleCareerSelect = (career: CareerType, customCareer?: string) => {
+    setShowCareerSelection(false);
+    const queryParams = new URLSearchParams({
+      category: QuestionCategory.CAREER,
+      career: career,
+      ...(customCareer && { customCareer })
+    });
+    router.push(`/game?${queryParams.toString()}`);
   };
 
   const stats = user ? getStats() : null;
@@ -166,17 +182,25 @@ export default function HomePage() {
                   transition={{ delay: 1.0 }}
                 >
                   <div className="relative">
-                    <input
-                      type="number"
-                      placeholder="Your age"
+                    <select
                       value={userAge}
                       onChange={(e) => setUserAge(e.target.value)}
-                      min="3"
-                      max="100"
                       required
-                      className="w-full p-4 border-2 border-purple-200 rounded-xl focus:border-coral-400 focus:outline-none bg-white/70 backdrop-blur-sm transition-all duration-300 text-gray-800 placeholder-gray-500"
-                    />
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-2xl">🎂</div>
+                      className="w-full p-4 border-2 border-purple-200 rounded-xl focus:border-coral-400 focus:outline-none bg-white/70 backdrop-blur-sm transition-all duration-300 text-gray-800 appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled>Select your age range</option>
+                      <option value="2.5">2 - 3 years</option>
+                      <option value="4">3 - 5 years</option>
+                      <option value="7">5 - 9 years</option>
+                      <option value="11">9 - 13 years</option>
+                      <option value="14">13 - 15 years</option>
+                    </select>
+                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-2xl pointer-events-none">🎂</div>
+                    <div className="absolute right-8 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                      <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </div>
                 </motion.div>
                 
@@ -433,6 +457,13 @@ export default function HomePage() {
       </main>
 
       <Navigation />
+      
+      {/* Career Selection Modal */}
+      <CareerSelectionModal
+        isOpen={showCareerSelection}
+        onClose={() => setShowCareerSelection(false)}
+        onSelectCareer={handleCareerSelect}
+      />
     </div>
   );
 }

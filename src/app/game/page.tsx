@@ -19,6 +19,8 @@ export default function GamePage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const category = searchParams.get('category') as QuestionCategory;
+  const selectedCareer = searchParams.get('career') as any;
+  const customCareerName = searchParams.get('customCareer');
   
   const {
     user,
@@ -40,12 +42,12 @@ export default function GamePage() {
 
   useEffect(() => {
     if (user && category && !currentSession) {
-      const session = startGameSession(category);
+      const session = startGameSession(category, selectedCareer, customCareerName || undefined);
       if (session) {
         setCurrentQuestion(getNextQuestion());
       }
     }
-  }, [user, category, currentSession, startGameSession, getNextQuestion]);
+  }, [user, category, selectedCareer, customCareerName, currentSession, startGameSession, getNextQuestion]);
 
   useEffect(() => {
     if (currentSession && !currentQuestion && !isSessionCompleted()) {
@@ -65,12 +67,15 @@ export default function GamePage() {
   };
 
   const handleNextQuestion = () => {
+    console.log('handleNextQuestion called'); // Debug log
     setShowResult(false);
     
     if (isSessionCompleted()) {
+      console.log('Session completed, navigating to results'); // Debug log
       // Navigate to results page or back home
       router.push(`/game/results?session=${currentSession?.id}`);
     } else {
+      console.log('Getting next question'); // Debug log
       setCurrentQuestion(getNextQuestion());
     }
   };
