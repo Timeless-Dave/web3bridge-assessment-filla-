@@ -188,6 +188,18 @@ export const generateCareerQuestion = (difficulty: DifficultyLevel): Question =>
       { word: 'Security', blank: 'Sec_rity', answer: 'u' },
       { word: 'Protection', blank: 'Prot_ction', answer: 'e' },
     ],
+    [CareerType.TEACHER]: [
+      { word: 'Education', blank: 'Educ_tion', answer: 'a' },
+      { word: 'Lesson', blank: 'Less_n', answer: 'o' },
+      { word: 'Student', blank: 'Stud_nt', answer: 'e' },
+      { word: 'Knowledge', blank: 'Knowl_dge', answer: 'e' },
+    ],
+    [CareerType.BUSINESS]: [
+      { word: 'Manager', blank: 'Man_ger', answer: 'a' },
+      { word: 'Profit', blank: 'Prof_t', answer: 'i' },
+      { word: 'Contract', blank: 'Contr_ct', answer: 'a' },
+      { word: 'Meeting', blank: 'Meet_ng', answer: 'i' },
+    ],
   };
   
   const careers = Object.keys(careerWords) as CareerType[];

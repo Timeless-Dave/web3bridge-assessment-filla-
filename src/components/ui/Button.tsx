@@ -58,6 +58,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     disabled,
     ...props 
   }, ref) => {
+    // Separate motion props from HTML button props
+    const {
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      exit,
+      onAnimationStart,
+      onAnimationComplete,
+      ...buttonProps
+    } = props as any;
+
     return (
       <motion.button
         ref={ref}
@@ -65,7 +77,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || loading}
         whileHover={{ scale: disabled ? 1 : 1.02 }}
         whileTap={{ scale: disabled ? 1 : 0.98 }}
-        {...props}
+        {...buttonProps}
       >
         {loading && (
           <motion.div

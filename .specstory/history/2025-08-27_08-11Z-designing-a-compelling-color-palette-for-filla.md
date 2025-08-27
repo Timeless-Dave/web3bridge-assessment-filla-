@@ -4120,3 +4120,872 @@ Your Filla educational game now has a **world-class error handling system** that
 
 ---
 
+_**User**_
+
+push to @https://github.com/Timeless-Dave/filla.git 
+
+---
+
+_**Assistant**_
+
+<think><details><summary>Thought Process</summary>The user wants me to push the code to the GitHub repository at https://github.com/Timeless-Dave/filla.git. From the search results, I can see this is an empty repository on GitHub under the username "Timeless-Dave".
+
+I need to help them push their local Filla educational game code to this remote repository. I'll need to:
+
+1. Initialize git if not already done
+2. Add the remote origin
+3. Add all files
+4. Commit the changes
+5. Push to the main branch
+
+Let me provide the git commands needed to push the code to this repository.</details></think>
+
+---
+
+I'll help you push your beautiful Filla educational game to the GitHub repository at [https://github.com/Timeless-Dave/filla.git](https://github.com/Timeless-Dave/filla.git). Since the repository is currently empty, we'll need to initialize git and push all your code.
+
+---
+
+```bash
+git init
+```
+
+---
+
+<think><details><summary>Thought Process</summary>The user skipped the git init command. Let me try the next steps to add the remote and push the code. Maybe git is already initialized.</details></think>
+
+---
+
+```bash
+git remote add origin https://github.com/Timeless-Dave/filla.git
+```
+
+---
+
+<think><details><summary>Thought Process</summary>The user is skipping the commands. Let me provide them with the complete set of git commands they need to run manually to push their code to the GitHub repository. I'll give them all the commands at once so they can execute them themselves.</details></think>
+
+---
+
+I'll provide you with the complete set of git commands needed to push your Filla educational game to the GitHub repository. You can run these commands in your terminal:
+
+## 🚀 **Git Commands to Push to GitHub:**
+
+```bash
+# 1. Initialize git repository (if not already done)
+git init
+
+# 2. Add the GitHub repository as remote origin
+git remote add origin https://github.com/Timeless-Dave/filla.git
+
+# 3. Add all files to staging
+git add .
+
+# 4. Create initial commit with all your amazing work
+git commit -m "🎉 Initial commit: Complete Filla Educational Game
+
+✨ Features:
+- Beautiful, child-friendly UI with vibrant color palette
+- Owl mascot character integration throughout
+- Advanced achievement system with 10+ badges
+- Engaging game interface with mountain backgrounds
+- Stunning leaderboard with podium system
+- Enhanced progress tracking with XP system
+- Modern 404 and error pages
+- Responsive design optimized for all devices
+- Gamification elements for addictive learning
+
+🎨 Design highlights:
+- Coral, turquoise, sunshine yellow, purple color scheme
+- Glassmorphism effects and floating animations
+- Micro-interactions and smooth transitions
+- Mobile-first responsive design
+
+🏆 Achievement system:
+- Progress tracking with visual badges
+- Rarity levels (Common, Rare, Epic, Legendary)
+- Real-time notifications and celebrations
+- Motivational progress indicators
+
+Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion"
+
+# 5. Set the main branch as default
+git branch -M main
+
+# 6. Push to GitHub
+git push -u origin main
+```
+
+## 📋 **Alternative Single Command:**
+
+If you prefer to do it all at once:
+
+```bash
+git init && git remote add origin https://github.com/Timeless-Dave/filla.git && git add . && git commit -m "🎉 Complete Filla Educational Game - Initial Release" && git branch -M main && git push -u origin main
+```
+
+## 🔑 **Authentication Notes:**
+
+If you encounter authentication issues, you might need to:
+
+1. **Use Personal Access Token** (recommended):
+   ```bash
+   git remote set-url origin https://your-username:your-token@github.com/Timeless-Dave/filla.git
+   ```
+
+2. **Or use SSH** (if you have SSH keys set up):
+   ```bash
+   git remote set-url origin git@github.com:Timeless-Dave/filla.git
+   ```
+
+## 🎉 **What Will Be Pushed:**
+
+Your complete Filla educational game including:
+- ✅ **Vibrant Home Page** with owl mascot and subject cards
+- ✅ **Enhanced Game Interface** with nature backgrounds
+- ✅ **Beautiful Leaderboard** with podium system
+- ✅ **Profile Page** with achievement showcase
+- ✅ **404 & Error Pages** with engaging design
+- ✅ **Achievement System** with 10+ unique badges
+- ✅ **Progress Tracking** with XP and level system
+- ✅ **Responsive Navigation** with emoji icons
+- ✅ **Loading States** and error boundaries
+- ✅ **TypeScript Configuration** and build setup
+
+Once pushed, your repository at [https://github.com/Timeless-Dave/filla.git](https://github.com/Timeless-Dave/filla.git) will transform from empty to a showcase of your beautiful educational game! 🚀
+
+**Next Steps After Pushing:**
+1. 📝 Add a README.md with screenshots
+2. 🌐 Deploy to Vercel/Netlify for live demo
+3. 📱 Test on mobile devices
+4. 🎯 Add more achievement types and game categories
+
+Run the commands when you're ready, and your amazing Filla educational game will be live on GitHub! 🎉
+
+---
+
+_**User**_
+
+
+
+---
+
+_**Assistant**_
+
+<think><details><summary>Thought Process</summary>The user has encountered a build error. Looking at the terminal output, there's an ESLint error in the game page:
+
+```
+./src/app/game/page.tsx
+79:23  Error: React Hook "useHint" is called in function "handleHint" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".  react-hooks/rules-of-hooks
+```
+
+The error is saying that `useHint` is being called in a function called `handleHint` which violates the rules of hooks. Looking at the code, I need to check what's happening on line 79 in the game page.
+
+From what I can see in the previous code, there was a `useHint` function being called in a `handleHint` function. This is likely a naming issue where `useHint` should probably be called differently, or the function should be renamed.
+
+Let me check the game page and fix this issue.</details></think>
+
+---
+
+I see the build error! There's a React Hooks rule violation in the game page. The issue is that `useHint` is being called inside a `handleHint` function, which violates the rules of hooks. Let me fix this:
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>I found the issue! The problem is on line 79 where `useHint()` is being called inside the `handleHint` function. Looking at the context, `useHint` should be a function from the `useGameState` hook, not a hook itself. 
+
+Let me check what functions are available from `useGameState` at the top of the file.</details></think>
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>I see the issue now. The `useHint` is being destructured from `useGameState()` on line 28, so it's a function, not a hook. The error is happening because the function is named `useHint` which starts with "use", making ESLint think it's a React hook.
+
+The function should be called within the component directly, but since it starts with "use", ESLint is enforcing hook rules. I need to rename the destructured function to something that doesn't start with "use", like `hintFunction` or `getHint` or similar.
+
+Let me fix this by renaming the destructured function.</details></think>
+
+---
+
+<details><summary>Edit file: src/app/game/page.tsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -26,5 +26,5 @@
+      answerQuestion,
+      getNextQuestion,
+-     useHint,
++     useHint: getHint,
+      retryQuestion,
+      isSessionCompleted,
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>Now I need to update the `handleHint` function to use `getHint` instead of `useHint`.</details></think>
+
+---
+
+<details><summary>Edit file: src/app/game/page.tsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -77,5 +77,5 @@
+    const handleHint = () => {
+      if (user && user.gems >= 1) {
+-       const success = useHint();
++       const success = getHint();
+        if (success) {
+          setShowHint(true);
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>Now let me check if there are any other instances where `useHint` is being called in the file that need to be updated to `getHint`.</details></think>
+
+---
+
+
+
+---
+
+<think><details><summary>Thought Process</summary>Good! There's only one instance left which is the destructuring assignment we just fixed. Now let me run the build again to see if the error is resolved.</details></think>
+
+---
+
+Perfect! Now let's test the build to make sure the error is fixed:
+
+---
+
+```bash
+npm run build
+```
+
+```
+
+PS C:\Users\USER\Filla> npm run build
+PS C:\Users\USER\Filla> npm run build
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+> filla@1.0.0 build
+> next build
+
+  ▲ Next.js 14.2.32
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types  .Failed to compile.
+
+./src/app/leaderboard/page.tsx:22:20
+Type error: Argument of type 'LeaderboardEntry[]' is not assignable to parameter
+ of type 'SetStateAction<never[]>'.
+                                                  
+  Type 'LeaderboardEntry[]' is not assignable to type 'never[]'.
+    Type 'LeaderboardEntry' is not assignable to type 'never'.
+
+  20 |     // Load leaderboard data
+  21 |     const data = loadLeaderboard();
+> 22 |     setLeaderboard(data);
+     |                    ^
+  23 |   }, []);
+  24 |
+  25 |   const getRankIcon = (rank: number) => {
+Next.js build worker exited with code: 1 and signal: null
+```
+
+---
+
+<think><details><summary>Thought Process</summary>Now there's a TypeScript error in the leaderboard page. The issue is with the `setLeaderboard` function where it's trying to set data but there's a type mismatch. It seems like the `leaderboard` state is initialized as `never[]` instead of properly typed.
+
+Let me check the leaderboard page and fix this TypeScript error.</details></think>
+
+---
+
+Great progress! The React Hooks error is fixed. Now we have a TypeScript error in the leaderboard page. Let me fix that:
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>The issue is that the `leaderboard` state is initialized with an empty array `[]` which TypeScript infers as `never[]`. I need to properly type it. Let me look at the mock data to understand what type should be used.</details></think>
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>Now I can see the structure of the leaderboard items. I need to create a proper type for the leaderboard entries and use it for the state. Let me define the type and fix the state initialization.</details></think>
+
+---
+
+I can see the structure. Let me define a proper type for the leaderboard entries and fix the state:
+
+---
+
+<details><summary>Edit file: src/app/leaderboard/page.tsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 11, lines removed: 1
+
+```diff
+@@ -11,8 +11,18 @@
+  import { loadLeaderboard } from '@/lib/storage';
+  import { fadeInUp, stagger } from '@/utils/animations';
++ 
++ interface LeaderboardEntry {
++   userId: string;
++   name: string;
++   score: number;
++   rank: number;
++   gems: number;
++   level: number;
++   streak: number;
++ }
+  
+  export default function LeaderboardPage() {
+    const { user } = useGameState();
+-   const [leaderboard, setLeaderboard] = useState([]);
++   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
+    const [timeFrame, setTimeFrame] = useState<'daily' | 'weekly' | 'allTime'>('allTime');
+  
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now I should also update the mock leaderboard to use the proper type. Let me also make sure the `mockLeaderboard` is properly typed.</details></think>
+
+---
+
+<details><summary>Edit file: src/app/leaderboard/page.tsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 10, lines removed: 2
+
+```diff
+@@ -53,11 +53,19 @@
+    };
+  
+-   const mockLeaderboard = [
++   const mockLeaderboard: LeaderboardEntry[] = [
+      { userId: '1', name: 'Alex Champion', score: 2450, rank: 1, gems: 156, level: 12, streak: 15 },
+      { userId: '2', name: 'Sarah Brilliant', score: 2230, rank: 2, gems: 134, level: 11, streak: 12 },
+      { userId: '3', name: 'Mike Genius', score: 1980, rank: 3, gems: 98, level: 10, streak: 8 },
+      { userId: '4', name: 'Emma Smart', score: 1750, rank: 4, gems: 87, level: 9, streak: 6 },
+      { userId: '5', name: 'David Quick', score: 1650, rank: 5, gems: 76, level: 8, streak: 5 },
+-     ...(user ? [{ ...user, name: user.name || 'You', score: 1200, rank: 8 }] : []),
++     ...(user ? [{ 
++       userId: user.id || 'user', 
++       name: user.name || 'You', 
++       score: 1200, 
++       rank: 8, 
++       gems: user.gems || 0, 
++       level: user.level || 1, 
++       streak: user.streak || 0 
++     }] : []),
+    ];
+  
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>Now let me test the build again to see if the TypeScript error is resolved.</details></think>
+
+---
+
+Now let's test the build again to see if the TypeScript error is fixed:
+
+---
+
+```bash
+npm run build
+```
+
+```
+
+PS C:\Users\USER\Filla> npm run build
+
+> filla@1.0.0 build
+> next build
+
+  ▲ Next.js 14.2.32
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types  ..Failed to compile.
+
+./src/components/ui/Button.tsx:62:8
+Type error: Type '{ children: (ReactNode | Element)[]; form?: string | undefined; formAction?: string | (
+(formData: FormData) => void | Promise<void>) | undefined; ... 286 more ...; whileTap: { ...; }; }' is no
+t assignable to type 'MotionProps'.
+
+  Types of property 'onAnimationStart' are incompatible.
+    Type 'AnimationEventHandler<HTMLButtonElement> | undefined' is not assignable to type '((definition:
+AnimationDefinition) => void) | undefined'.
+
+      Type 'AnimationEventHandler<HTMLButtonElement>' is not assignable to type '(definition: AnimationDe
+finition) => void'.
+
+        Types of parameters 'event' and 'definition' are incompatible.
+            Type 'string' is not assignable to type 'AnimationEvent<HTMLButtonElement>'.
+
+  60 |   }, ref) => {
+  61 |     return (
+> 62 |       <motion.button
+     |        ^
+  63 |         ref={ref}
+  64 |         className={clsx(buttonVariants({ variant, size, fullWidth }), className)}
+  65 |         disabled={disabled || loading}
+Next.js build worker exited with code: 1 and signal: null
+```
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now there's a TypeScript error in the Button component related to Framer Motion. There seems to be a conflict between the HTML button props and Framer Motion props, specifically with the `onAnimationStart` property. 
+
+Let me check the Button component and fix this by properly separating the motion props from the HTML button props.</details></think>
+
+---
+
+Now there's a TypeScript error in the Button component related to Framer Motion props. Let me fix this:
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+The issue is that we're spreading `...props` after the Framer Motion props, which can cause conflicts. The `onAnimationStart` from HTML button props conflicts with Framer Motion's animation props. I need to separate the motion props from the HTML button props.
+
+Let me fix this by filtering out motion-specific props and creating a more specific prop interface.</details></think>
+
+---
+
+I need to fix the prop conflict. Let me separate the HTML button props from Framer Motion props:
+
+---
+
+<details><summary>Edit file: src/components/ui/Button.tsx</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 12, lines removed: undefined
+
+```diff
+@@ -59,4 +59,16 @@
+      ...props 
+    }, ref) => {
++     // Separate motion props from HTML button props
++     const {
++       whileHover,
++       whileTap,
++       initial,
++       animate,
++       exit,
++       onAnimationStart,
++       onAnimationComplete,
++       ...buttonProps
++     } = props as any;
++ 
+      return (
+        <motion.button
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -66,5 +78,5 @@
+          whileHover={{ scale: disabled ? 1 : 1.02 }}
+          whileTap={{ scale: disabled ? 1 : 0.98 }}
+-         {...props}
++         {...buttonProps}
+        >
+          {loading && (
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me test the build again to see if this fixes the TypeScript error.</details></think>
+
+---
+
+Let's test the build again:
+
+---
+
+```bash
+npm run build
+```
+
+```
+
+PS C:\Users\USER\Filla> npm run build
+
+> filla@1.0.0 build
+> next build
+
+  ▲ Next.js 14.2.32
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types  ..Failed to compile.
+
+./src/lib/gameLogic.ts:195:17
+Type error: Element implicitly has an 'any' type because expression of type 'CareerType' can't be used to
+ index type '{ lawyer: { word: string; blank: string; answer: string; }[]; doctor: { word: string; blank:
+ string; answer: string; }[]; engineer: { word: string; blank: string; answer: string; }[]; police: { wor
+d: string; blank: string; answer: string; }[]; }'.
+
+  Property '[CareerType.TEACHER]' does not exist on type '{ lawyer: { word: string; blank: string; answer
+k: string; answer: string; }[]; police: { word: string; blank: string; answer: string; }[]; }'.
+
+
+  193 |   const careers = Object.keys(careerWords) as CareerType[];
+  194 |   const selectedCareer = careers[Math.floor(Math.random() * careers.length)];
+> 195 |   const words = careerWords[selectedCareer];
+      |                 ^
+  196 |   const selectedWord = words[Math.floor(Math.random() * words.length)];
+  197 |
+  198 |   return {
+Next.js build worker exited with code: 1 and signal: null
+```
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now there's a TypeScript error in the gameLogic.ts file. The error indicates that there's a mismatch between the `CareerType` enum and the `careerWords` object keys. It seems like `CareerType.TEACHER` is defined in the enum but not in the `careerWords` object.
+
+Let me check the gameLogic file to understand and fix this issue.</details></think>
+
+---
+
+Now there's a TypeScript error in the game logic. Let me check and fix the career types issue:
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Let me look at the beginning of the file to see the CareerType enum definition and the careerWords object to understand what's missing.</details></think>
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me look at where the careerWords object starts to see what careers are defined:</details></think>
+
+---
+
+
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me check the CareerType enum to see what types are defined:</details></think>
+
+---
+
+Read file: undefined
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now I can see the issue! The `CareerType` enum includes `TEACHER` and `BUSINESS` but the `careerWords` object in `gameLogic.ts` only has entries for `LAWYER`, `DOCTOR`, `ENGINEER`, and `POLICE`. I need to add the missing career types to the `careerWords` object.</details></think>
+
+---
+
+I found the issue! The `CareerType` enum has `TEACHER` and `BUSINESS` but they're missing from the `careerWords` object. Let me add them:
+
+---
+
+<details><summary>Edit file: src/lib/gameLogic.ts</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 12, lines removed: undefined
+
+```diff
+@@ -189,4 +189,16 @@
+        { word: 'Protection', blank: 'Prot_ction', answer: 'e' },
+      ],
++     [CareerType.TEACHER]: [
++       { word: 'Education', blank: 'Educ_tion', answer: 'a' },
++       { word: 'Lesson', blank: 'Less_n', answer: 'o' },
++       { word: 'Student', blank: 'Stud_nt', answer: 'e' },
++       { word: 'Knowledge', blank: 'Knowl_dge', answer: 'e' },
++     ],
++     [CareerType.BUSINESS]: [
++       { word: 'Manager', blank: 'Man_ger', answer: 'a' },
++       { word: 'Profit', blank: 'Prof_t', answer: 'i' },
++       { word: 'Contract', blank: 'Contr_ct', answer: 'a' },
++       { word: 'Meeting', blank: 'Meet_ng', answer: 'i' },
++     ],
+    };
+    
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Perfect! Now let me test the build again to see if all TypeScript errors are resolved.</details></think>
+
+---
+
+Perfect! Now let's test the build again:
+
+---
+
+```bash
+npm run build
+```
+
+```
+
+PS C:\Users\USER\Filla> npm run build
+
+> filla@1.0.0 build
+
+  ▲ Next.js 14.2.32
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+ ✓ Linting and checking validity of types
+ ✓ Collecting page data    
+   Generating static pages (0/8)  [=   ] ⚠ Unsupported metadata themeColor is configured in metadata expo
+rt in /. Please move it to viewport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export
+ instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport expo
+rt instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export
+ instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to vie
+wport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /_not-found. Please move it to viewp
+ort export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to vie
+wport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /_not-found. Please move it to viewp
+ort export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /game/results. Please move it to v
+iewport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /game/results. Please move it to vie
+wport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /game/results. Please move it to v
+iewport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /game/results. Please move it to vie
+wport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /leaderboard. Please move it to vi
+ewport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /leaderboard. Please move it to view
+port export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /leaderboard. Please move it to vi
+ewport export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /leaderboard. Please move it to view
+port export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /game. Please move it to viewport
+export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /game. Please move it to viewport ex
+port instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /game. Please move it to viewport
+export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /game. Please move it to viewport ex
+port instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /profile. Please move it to viewpo
+rt export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /profile. Please move it to viewport
+ export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /profile. Please move it to viewpo
+rt export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /profile. Please move it to viewport
+ export instead.
+
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ✓ Generating static pages (8/8)
+ ✓ Collecting build traces    
+ ✓ Finalizing page optimization
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    4.93 kB         134 kB
+├ ○ /_not-found                          142 B          87.3 kB
+├ ƒ /[...slug]                           142 B          87.3 kB
+├ ○ /game                                6.16 kB         133 kB
+├ ○ /game/results                        4.45 kB         129 kB
+├ ○ /leaderboard                         4.73 kB         132 kB
+└ ○ /profile                             6.86 kB         136 kB
++ First Load JS shared by all            87.1 kB
+  ├ chunks/117-708c4b53eaa6fcba.js       31.6 kB
+  ├ chunks/fd9d1056-6922f449a204c2cc.js  53.6 kB
+  └ other shared chunks (total)          1.89 kB
+
+
+ƒ Middleware                             26.6 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+```
+
+---
+
+
+
+---
+
+_**User**_
+
+continue
+
+---
+
+_**Assistant**_
+
+
+
+---
+

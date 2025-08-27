@@ -25,7 +25,7 @@ export default function GamePage() {
     startGameSession,
     answerQuestion,
     getNextQuestion,
-    useHint,
+    useHint: getHint,
     retryQuestion,
     isSessionCompleted,
     getProgress,
@@ -76,7 +76,7 @@ export default function GamePage() {
 
   const handleHint = () => {
     if (user && user.gems >= 1) {
-      const success = useHint();
+      const success = getHint();
       if (success) {
         setShowHint(true);
       }

@@ -11,9 +11,19 @@ import { useGameState } from '@/hooks/useGameState';
 import { loadLeaderboard } from '@/lib/storage';
 import { fadeInUp, stagger } from '@/utils/animations';
 
+interface LeaderboardEntry {
+  userId: string;
+  name: string;
+  score: number;
+  rank: number;
+  gems: number;
+  level: number;
+  streak: number;
+}
+
 export default function LeaderboardPage() {
   const { user } = useGameState();
-  const [leaderboard, setLeaderboard] = useState([]);
+  const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [timeFrame, setTimeFrame] = useState<'daily' | 'weekly' | 'allTime'>('allTime');
 
   useEffect(() => {
@@ -42,13 +52,21 @@ export default function LeaderboardPage() {
     return 'bg-gray-100';
   };
 
-  const mockLeaderboard = [
+  const mockLeaderboard: LeaderboardEntry[] = [
     { userId: '1', name: 'Alex Champion', score: 2450, rank: 1, gems: 156, level: 12, streak: 15 },
     { userId: '2', name: 'Sarah Brilliant', score: 2230, rank: 2, gems: 134, level: 11, streak: 12 },
     { userId: '3', name: 'Mike Genius', score: 1980, rank: 3, gems: 98, level: 10, streak: 8 },
     { userId: '4', name: 'Emma Smart', score: 1750, rank: 4, gems: 87, level: 9, streak: 6 },
     { userId: '5', name: 'David Quick', score: 1650, rank: 5, gems: 76, level: 8, streak: 5 },
-    ...(user ? [{ ...user, name: user.name || 'You', score: 1200, rank: 8 }] : []),
+    ...(user ? [{ 
+      userId: user.id || 'user', 
+      name: user.name || 'You', 
+      score: 1200, 
+      rank: 8, 
+      gems: user.gems || 0, 
+      level: user.level || 1, 
+      streak: user.streak || 0 
+    }] : []),
   ];
 
   const displayLeaderboard = leaderboard.length > 0 ? leaderboard : mockLeaderboard;
