@@ -1,0 +1,305 @@
+{
+  "quantitative": [
+    {
+      "id": "q-math-1",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "question": "What is 5 + 3?",
+      "correctAnswer": "8",
+      "options": ["6", "7", "8", "9"],
+      "points": 10,
+      "hint": "Add the two numbers together.",
+      "explanation": "5 + 3 = 8"
+    },
+    {
+      "id": "q-math-2",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "question": "What is 10 - 4?",
+      "correctAnswer": "6",
+      "options": ["5", "6", "7", "8"],
+      "points": 10,
+      "hint": "Subtract 4 from 10.",
+      "explanation": "10 - 4 = 6"
+    },
+    {
+      "id": "q-math-3",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "What is 12 × 3?",
+      "correctAnswer": "36",
+      "options": ["32", "34", "36", "38"],
+      "points": 20,
+      "hint": "Multiply 12 by 3.",
+      "explanation": "12 × 3 = 36"
+    },
+    {
+      "id": "q-math-4",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "What is 48 ÷ 6?",
+      "correctAnswer": "8",
+      "options": ["6", "7", "8", "9"],
+      "points": 20,
+      "hint": "Divide 48 by 6.",
+      "explanation": "48 ÷ 6 = 8"
+    },
+    {
+      "id": "q-math-5",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "What is 25 × 4?",
+      "correctAnswer": "100",
+      "options": ["90", "95", "100", "105"],
+      "points": 30,
+      "hint": "Think of quarters in a dollar.",
+      "explanation": "25 × 4 = 100"
+    },
+    {
+      "id": "q-math-6",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "What is 144 ÷ 12?",
+      "correctAnswer": "12",
+      "options": ["10", "11", "12", "13"],
+      "points": 30,
+      "hint": "12 times what equals 144?",
+      "explanation": "144 ÷ 12 = 12"
+    },
+    {
+      "id": "q-math-7",
+      "type": "multiple_choice",
+      "difficulty": "expert",
+      "question": "What is 15² (15 squared)?",
+      "correctAnswer": "225",
+      "options": ["200", "215", "225", "235"],
+      "points": 50,
+      "hint": "15 × 15",
+      "explanation": "15 × 15 = 225"
+    },
+    {
+      "id": "q-math-8",
+      "type": "multiple_choice",
+      "difficulty": "expert",
+      "question": "What is the square root of 169?",
+      "correctAnswer": "13",
+      "options": ["11", "12", "13", "14"],
+      "points": 50,
+      "hint": "What number times itself equals 169?",
+      "explanation": "√169 = 13 because 13 × 13 = 169"
+    }
+  ],
+  "verbal": [
+    {
+      "id": "q-verbal-1",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "Apple",
+      "options": ["Aple", "Applle", "Apple", "Appele"],
+      "points": 10,
+      "hint": "A common fruit that keeps the doctor away.",
+      "explanation": "Apple is the correct spelling."
+    },
+    {
+      "id": "q-verbal-2",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "House",
+      "options": ["Hous", "House", "Howse", "Hoose"],
+      "points": 10,
+      "hint": "A place where people live.",
+      "explanation": "House is the correct spelling."
+    },
+    {
+      "id": "q-verbal-3",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "Beautiful",
+      "options": ["Beatiful", "Beautyful", "Beautiful", "Beutiful"],
+      "points": 20,
+      "hint": "Something that is pleasing to look at.",
+      "explanation": "Beautiful is the correct spelling."
+    },
+    {
+      "id": "q-verbal-4",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "Education",
+      "options": ["Educashun", "Edukation", "Education", "Educasion"],
+      "points": 20,
+      "hint": "The process of learning in school.",
+      "explanation": "Education is the correct spelling."
+    },
+    {
+      "id": "q-verbal-5",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "Psychology",
+      "options": ["Psycology", "Psychology", "Phsychology", "Sychology"],
+      "points": 30,
+      "hint": "The study of the mind and behavior.",
+      "explanation": "Psychology is the correct spelling."
+    },
+    {
+      "id": "q-verbal-6",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "Mathematics",
+      "options": ["Mathmatics", "Mathemetics", "Mathematics", "Mathemathics"],
+      "points": 30,
+      "hint": "The study of numbers and shapes.",
+      "explanation": "Mathematics is the correct spelling."
+    },
+    {
+      "id": "q-verbal-7",
+      "type": "multiple_choice",
+      "difficulty": "expert",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "Entrepreneur",
+      "options": ["Entrepeneur", "Entreprenuer", "Entrepreneur", "Enterprenuer"],
+      "points": 50,
+      "hint": "A person who starts and runs a business.",
+      "explanation": "Entrepreneur is the correct spelling."
+    },
+    {
+      "id": "q-verbal-8",
+      "type": "multiple_choice",
+      "difficulty": "expert",
+      "question": "Which word is spelled correctly?",
+      "correctAnswer": "Pronunciation",
+      "options": ["Pronounciation", "Pronunciation", "Pronuncication", "Pronounceation"],
+      "points": 50,
+      "hint": "The way a word is spoken.",
+      "explanation": "Pronunciation is the correct spelling."
+    }
+  ],
+  "career": [
+    {
+      "id": "q-career-1",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "question": "In Law, what do we call the person who is accused in court?",
+      "correctAnswer": "Defendant",
+      "options": ["Plaintiff", "Defendant", "Judge", "Jury"],
+      "points": 10,
+      "hint": "This person defends themselves against charges.",
+      "explanation": "The defendant is the person accused in a court case.",
+      "career": "law"
+    },
+    {
+      "id": "q-career-2",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "question": "In IT, what does CPU stand for?",
+      "correctAnswer": "Central Processing Unit",
+      "options": ["Central Processing Unit", "Computer Personal Unit", "Central Program Utility", "Core Processing Unit"],
+      "points": 10,
+      "hint": "It's the brain of the computer.",
+      "explanation": "CPU stands for Central Processing Unit, the main processor of a computer.",
+      "career": "it"
+    },
+    {
+      "id": "q-career-3",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "In Law, who brings a case against another in a court of law?",
+      "correctAnswer": "Plaintiff",
+      "options": ["Defendant", "Plaintiff", "Witness", "Bailiff"],
+      "points": 20,
+      "hint": "This person complains or files the lawsuit.",
+      "explanation": "The plaintiff is the person who initiates a lawsuit.",
+      "career": "law"
+    },
+    {
+      "id": "q-career-4",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "In IT, what is a firewall used for?",
+      "correctAnswer": "Network security",
+      "options": ["Data storage", "Network security", "Code compilation", "File sharing"],
+      "points": 20,
+      "hint": "It protects your network from threats.",
+      "explanation": "A firewall is a network security system that monitors and controls incoming and outgoing network traffic.",
+      "career": "it"
+    },
+    {
+      "id": "q-career-5",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "In Aviation, what does ATC stand for?",
+      "correctAnswer": "Air Traffic Control",
+      "options": ["Automatic Transmission Control", "Air Traffic Control", "Aviation Technical Center", "Airborne Transport Command"],
+      "points": 30,
+      "hint": "They guide pilots and manage air traffic.",
+      "explanation": "ATC stands for Air Traffic Control, which manages aircraft movements.",
+      "career": "aviation"
+    },
+    {
+      "id": "q-career-6",
+      "type": "multiple_choice",
+      "difficulty": "hard",
+      "question": "In Medicine, what is the process of identifying a disease called?",
+      "correctAnswer": "Diagnosis",
+      "options": ["Prognosis", "Diagnosis", "Treatment", "Therapy"],
+      "points": 30,
+      "hint": "Doctors do this to figure out what's wrong.",
+      "explanation": "Diagnosis is the identification of the nature of an illness or other problem.",
+      "career": "medical"
+    },
+    {
+      "id": "q-career-7",
+      "type": "multiple_choice",
+      "difficulty": "expert",
+      "question": "In Law, what is a legal document ordering someone to attend court called?",
+      "correctAnswer": "Subpoena",
+      "options": ["Warrant", "Subpoena", "Affidavit", "Summons"],
+      "points": 50,
+      "hint": "It compels a witness to appear in court.",
+      "explanation": "A subpoena is a legal document ordering someone to attend court as a witness.",
+      "career": "law"
+    },
+    {
+      "id": "q-career-8",
+      "type": "multiple_choice",
+      "difficulty": "expert",
+      "question": "In Police work, what is the scientific analysis of evidence called?",
+      "correctAnswer": "Forensics",
+      "options": ["Investigation", "Forensics", "Surveillance", "Interrogation"],
+      "points": 50,
+      "hint": "CSI uses these scientific methods.",
+      "explanation": "Forensics is the application of scientific methods and techniques to investigate crimes.",
+      "career": "police"
+    },
+    {
+      "id": "q-career-9",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "question": "In Police work, what are the rights read to someone upon arrest called?",
+      "correctAnswer": "Miranda Rights",
+      "options": ["Constitutional Rights", "Miranda Rights", "Legal Rights", "Arrest Rights"],
+      "points": 20,
+      "hint": "You have the right to remain silent...",
+      "explanation": "Miranda Rights inform arrested persons of their constitutional rights.",
+      "career": "police"
+    },
+    {
+      "id": "q-career-10",
+      "type": "multiple_choice",
+      "difficulty": "expert",
+      "question": "In IT, what does API stand for?",
+      "correctAnswer": "Application Programming Interface",
+      "options": ["Application Programming Interface", "Advanced Program Integration", "Automated Process Interface", "Application Process Integration"],
+      "points": 50,
+      "hint": "It allows different software to communicate.",
+      "explanation": "API stands for Application Programming Interface, which allows different applications to communicate with each other.",
+      "career": "it"
+    }
+  ]
+}
+

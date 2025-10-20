@@ -41,12 +41,36 @@ export default function GamePage() {
   const [isPaused, setIsPaused] = useState(false);
   const [timeLimit] = useState(30); // 30 seconds per question
 
+  // Prefetch questions from API
+  useEffect(() => {
+    if (!category) return;
+    
+    const prefetchQuestions = async () => {
+      try {
+        const res = await fetch('/api/questions', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          // Cache questions globally for startGameSession to use
+          (globalThis as any).__filla_questions__ = data;
+        }
+      } catch (error) {
+        console.error('Error prefetching questions:', error);
+        // Fallback to generated questions will be used
+      }
+    };
+    
+    prefetchQuestions();
+  }, [category]);
+
   useEffect(() => {
     if (user && category && !currentSession) {
-      const session = startGameSession(category, selectedCareer, customCareerName || undefined);
-      if (session) {
-        setCurrentQuestion(getNextQuestion());
-      }
+      const initSession = async () => {
+        const session = await startGameSession(category, selectedCareer, customCareerName || undefined);
+        if (session) {
+          setCurrentQuestion(getNextQuestion());
+        }
+      };
+      initSession();
     }
   }, [user, category, selectedCareer, customCareerName, currentSession, startGameSession, getNextQuestion]);
 
