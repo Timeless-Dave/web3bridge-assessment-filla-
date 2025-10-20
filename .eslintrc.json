@@ -1,8 +1,13 @@
 {
+  // ESLint configuration for Filla Quiz Game
+  // Updated: January 2025 - Web3Bridge Assessment
   "extends": ["next/core-web-vitals"],
   "rules": {
+    // Warn on missing dependencies in useEffect/useCallback
     "react-hooks/exhaustive-deps": "warn",
+    // Allow img tags (we use Next.js Image where needed)
     "@next/next/no-img-element": "off",
+    // Allow apostrophes and quotes in JSX text
     "react/no-unescaped-entities": "off"
   }
 }
