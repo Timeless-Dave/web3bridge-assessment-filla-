@@ -39,6 +39,7 @@ export default function GamePage() {
   const [lastResult, setLastResult] = useState<any>(null);
   const [showHint, setShowHint] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [timeLimit] = useState(30); // 30 seconds per question
 
   useEffect(() => {
     if (user && category && !currentSession) {
@@ -105,6 +106,13 @@ export default function GamePage() {
 
   const handleQuit = () => {
     router.push('/');
+  };
+
+  const handleTimeUp = () => {
+    // Treat time up as incorrect answer
+    if (!showResult && currentQuestion) {
+      handleAnswer(''); // Empty answer = incorrect
+    }
   };
 
   const progress = getProgress();
@@ -223,6 +231,8 @@ export default function GamePage() {
                 onHint={user.gems >= 1 ? handleHint : undefined}
                 showHint={showHint}
                 disabled={showResult}
+                timeLimit={timeLimit}
+                onTimeUp={handleTimeUp}
               />
             )}
           </AnimatePresence>
