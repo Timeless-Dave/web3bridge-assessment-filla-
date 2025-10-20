@@ -1,3 +1,14 @@
-
+# Cursor Indexing Ignore Configuration
+# Updated: January 2025 - Web3Bridge Assessment
 # Don't index SpecStory auto-save files, but allow explicit context inclusion via @ references
 .specstory/**
+
+# Don't index build outputs
+.next/**
+out/**
+
+# Don't index dependencies
+node_modules/**
+
+# Don't index environment files
+.env*.local
