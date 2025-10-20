@@ -141,6 +141,48 @@ export default function GamePage() {
 
   const progress = getProgress();
 
+  // Redirect if no category selected
+  if (!category) {
+    return (
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50">
+        <Header 
+          title="Select a Game"
+          gems={user?.gems || 0}
+          showGems={true}
+        />
+        
+        <main className="flex-1 flex items-center justify-center p-4">
+          <Card padding="lg" className="max-w-md w-full text-center">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", bounce: 0.6 }}
+              className="text-6xl mb-4"
+            >
+              🎮
+            </motion.div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">
+              Choose Your Game
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Select a category from the home page to start playing!
+            </p>
+            <div className="space-y-3">
+              <Button
+                onClick={() => router.push('/')}
+                fullWidth
+                size="lg"
+                className="bg-gradient-to-r from-coral-500 to-coral-600"
+              >
+                Go to Categories 🏠
+              </Button>
+            </div>
+          </Card>
+        </main>
+      </div>
+    );
+  }
+
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
