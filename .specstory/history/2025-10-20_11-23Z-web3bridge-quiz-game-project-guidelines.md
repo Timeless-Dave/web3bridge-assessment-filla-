@@ -527,6 +527,1113 @@ and also push to different branches one after the other and tell me what,s neede
 
 _**Assistant (claude-4.5-sonnet-thinking)**_
 
+<think><details><summary>Thought Process</summary>The user wants me to:
+1. Implement all the changes I proposed (JSON questions, Firebase realtime leaderboard, timer, tests, etc.)
+2. Push to the repository: https://github.com/Timeless-Dave/web3bridge-assessment-filla-.git
+3. Use proper git workflow with different branches
+4. Tell them what they need to do on their end
+
+Let me create a comprehensive task list and start implementing systematically. I'll need to:
+1. Check the current git status
+2. Set up the remote if needed
+3. Create branches and implement features one by one
+4. Make proper commits
+5. Push branches
+6. Guide the user on what they need to do (Firebase setup, deployment, etc.)
+
+Let me start by creating a TODO list and then implementing each feature step by step.</details></think>
+
+---
+
+Perfect! I'll implement all the changes systematically, push to branches, and guide you through what you need to do on your end. Let me start by creating a task list and then implementing each feature.
+
+---
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [-] Set up git remote and create main branch structure
+- [ ] Create feat/questions-json branch: Add JSON question bank, loader, and API route
+- [ ] Create feat/realtime-leaderboard branch: Add Firebase realtime database integration
+- [ ] Create feat/timer-and-enhancements branch: Add per-question timer and error handling
+- [ ] Create feat/tests-and-documentation branch: Add tests and comprehensive README
+- [ ] Push all branches and create detailed setup guide for user
+
+---
+
+<think><details><summary>Thought Process</summary>Good, now let me check the current git status and set up the remote.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git remote -v
+```
+
+```
+PS C:\Users\USER\Filla> git remote -v
+origin  https://github.com/Timeless-Dave/filla.git (fetch)
+origin  https://github.com/Timeless-Dave/filla.git (push)
+```
+
+---
+
+<think><details><summary>Thought Process</summary>The current remote points to a different repo (filla.git instead of web3bridge-assessment-filla-.git). I need to update or add the correct remote.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git remote set-url origin https://github.com/Timeless-Dave/web3bridge-assessment-filla-.git
+```
+
+```
+ve/web3bridge-assessment-filla-.git
+```
+
+---
+
+<think><details><summary>Thought Process</summary>Good. Now let me commit the current changes and push to main first, then create the feature branches.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git status
+```
+
+```
+PS C:\Users\USER\Filla> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .specstory/history/2025-08-25_09-06Z-game-proposal-and-mvp-setup-for-filla.md                                                               
+        modified:   .specstory/history/2025-08-27_08-11Z-designing-a-compelling-color-palette-for-filla.md                                                      
+        modified:   .specstory/history/2025-08-27_12-32Z-improve-login-and-career-game-features.md                                                              
+        modified:   src/app/page.tsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .specstory/history/2025-08-28_13-58Z-apply-linear-gradient-border-style.md                                                                              
+        .specstory/history/2025-10-20_11-23Z-web3bridge-quiz-game-project-guidelines.md                                                                         
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+---
+
+<think><details><summary>Thought Process</summary>I need to commit the current changes first before creating feature branches. Let me do that.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git add .
+```
+
+```
+PS C:\Users\USER\Filla> git add .
+warning: in the working copy of '.specstory/history/2025-08-25_09-06Z-game-proposal-and-mvp-setup-for-filla.md', LF will be replaced by CRLF the next time Git touches it                                                                       
+warning: in the working copy of '.specstory/history/2025-08-27_08-11Z-designing-a-compelling-color-palette-for-filla.md', LF will be replaced by CRLF the next time Git touches it                                                              
+warning: in the working copy of '.specstory/history/2025-08-27_12-32Z-improve-login-and-career-game-features.md', LF will be replaced by CRLF the next time Git touches it                                                                      
+warning: in the working copy of 'src/app/page.tsx', LF will be replaced by CRLF the next time Git touches it                                                    
+warning: in the working copy of '.specstory/history/2025-08-28_13-58Z-apply-linear-gradient-border-style.md', LF will be replaced by CRLF the next time Git touches it                                                                          
+warning: in the working copy of '.specstory/history/2025-10-20_11-23Z-web3bridge-quiz-game-project-guidelines.md', LF will be replaced by CRLF the next time Git touches it                                                                     
+```
+
+---
+
+<think><details><summary>Thought Process</summary>Good, now let me commit the current state.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git commit -m "chore: initial commit - existing quiz game codebase"
+```
+
+```
+e codebase"                                                                     
+[main 0bf1ef1] chore: initial commit - existing quiz game codebase
+ 5 files changed, 7804 insertions(+), 242 deletions(-)
+ create mode 100644 .specstory/history/2025-08-28_13-58Z-apply-linear-gradient-border-style.md                                                                  
+ create mode 100644 .specstory/history/2025-10-20_11-23Z-web3bridge-quiz-game-project-guidelines.md                                                             
+```
+
+---
+
+<think><details><summary>Thought Process</summary>Now let me push this to main first, then create feature branches.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git push -u origin main
+```
+
+```
+PS C:\Users\USER\Filla> git push -u origin main
+Enumerating objects: 119, done.
+Counting objects: 100% (119/119), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (110/110), done.
+Writing objects: 100% (119/119), 237.04 KiB | 1.05 MiB/s, done.
+Total 119 (delta 34), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (34/34), done.
+To https://github.com/Timeless-Dave/web3bridge-assessment-filla-.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+```
+
+---
+
+<think><details><summary>Thought Process</summary>Great! Now let me update the TODO and create the first feature branch for JSON questions.</details></think>
+
+---
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [x] Set up git remote and create main branch structure
+- [-] Create feat/questions-json branch: Add JSON question bank, loader, and API route
+- [ ] Create feat/realtime-leaderboard branch: Add Firebase realtime database integration
+- [ ] Create feat/timer-and-enhancements branch: Add per-question timer and error handling
+- [ ] Create feat/tests-and-documentation branch: Add tests and comprehensive README
+- [ ] Push all branches and create detailed setup guide for user
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me create the first feature branch and start implementing JSON questions.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git checkout -b feat/questions-json
+```
+
+```
+PS C:\Users\USER\Filla> git checkout -b feat/questions-json
+Switched to a new branch 'feat/questions-json'
+```
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Perfect! Now let me create the data directory and the questions.json file with a comprehensive question bank.</details></think>
+
+---
+
+Now I'll create the JSON question bank with diverse questions:
+
+---
+
+Tool use: **write**
+
+
+<details><summary>Edit file: src/data/questions.json</summary>
+
+**Chunk 1**
+Lines added: 305, lines removed: 1
+
+```diff
+@@ -1,1 +1,305 @@
+- 
++ {
++   "quantitative": [
++     {
++       "id": "q-math-1",
++       "type": "multiple_choice",
++       "difficulty": "easy",
++       "question": "What is 5 + 3?",
++       "correctAnswer": "8",
++       "options": ["6", "7", "8", "9"],
++       "points": 10,
++       "hint": "Add the two numbers together.",
++       "explanation": "5 + 3 = 8"
++     },
++     {
++       "id": "q-math-2",
++       "type": "multiple_choice",
++       "difficulty": "easy",
++       "question": "What is 10 - 4?",
++       "correctAnswer": "6",
++       "options": ["5", "6", "7", "8"],
++       "points": 10,
++       "hint": "Subtract 4 from 10.",
++       "explanation": "10 - 4 = 6"
++     },
++     {
++       "id": "q-math-3",
++       "type": "multiple_choice",
++       "difficulty": "medium",
++       "question": "What is 12 × 3?",
++       "correctAnswer": "36",
++       "options": ["32", "34", "36", "38"],
++       "points": 20,
++       "hint": "Multiply 12 by 3.",
++       "explanation": "12 × 3 = 36"
++     },
++     {
++       "id": "q-math-4",
++       "type": "multiple_choice",
++       "difficulty": "medium",
++       "question": "What is 48 ÷ 6?",
++       "correctAnswer": "8",
++       "options": ["6", "7", "8", "9"],
++       "points": 20,
++       "hint": "Divide 48 by 6.",
++       "explanation": "48 ÷ 6 = 8"
++     },
++     {
++       "id": "q-math-5",
++       "type": "multiple_choice",
++       "difficulty": "hard",
++       "question": "What is 25 × 4?",
++       "correctAnswer": "100",
++       "options": ["90", "95", "100", "105"],
++       "points": 30,
++       "hint": "Think of quarters in a dollar.",
++       "explanation": "25 × 4 = 100"
++     },
++     {
++       "id": "q-math-6",
++       "type": "multiple_choice",
++       "difficulty": "hard",
++       "question": "What is 144 ÷ 12?",
++       "correctAnswer": "12",
++       "options": ["10", "11", "12", "13"],
++       "points": 30,
++       "hint": "12 times what equals 144?",
++       "explanation": "144 ÷ 12 = 12"
++     },
++     {
++       "id": "q-math-7",
++       "type": "multiple_choice",
++       "difficulty": "expert",
++       "question": "What is 15² (15 squared)?",
++       "correctAnswer": "225",
++       "options": ["200", "215", "225", "235"],
++       "points": 50,
++       "hint": "15 × 15",
++       "explanation": "15 × 15 = 225"
++     },
++     {
++       "id": "q-math-8",
++       "type": "multiple_choice",
++       "difficulty": "expert",
++       "question": "What is the square root of 169?",
++       "correctAnswer": "13",
++       "options": ["11", "12", "13", "14"],
++       "points": 50,
++       "hint": "What number times itself equals 169?",
++       "explanation": "√169 = 13 because 13 × 13 = 169"
++     }
++   ],
++   "verbal": [
++     {
++       "id": "q-verbal-1",
++       "type": "multiple_choice",
++       "difficulty": "easy",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "Apple",
++       "options": ["Aple", "Applle", "Apple", "Appele"],
++       "points": 10,
++       "hint": "A common fruit that keeps the doctor away.",
++       "explanation": "Apple is the correct spelling."
++     },
++     {
++       "id": "q-verbal-2",
++       "type": "multiple_choice",
++       "difficulty": "easy",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "House",
++       "options": ["Hous", "House", "Howse", "Hoose"],
++       "points": 10,
++       "hint": "A place where people live.",
++       "explanation": "House is the correct spelling."
++     },
++     {
++       "id": "q-verbal-3",
++       "type": "multiple_choice",
++       "difficulty": "medium",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "Beautiful",
++       "options": ["Beatiful", "Beautyful", "Beautiful", "Beutiful"],
++       "points": 20,
++       "hint": "Something that is pleasing to look at.",
++       "explanation": "Beautiful is the correct spelling."
++     },
++     {
++       "id": "q-verbal-4",
++       "type": "multiple_choice",
++       "difficulty": "medium",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "Education",
++       "options": ["Educashun", "Edukation", "Education", "Educasion"],
++       "points": 20,
++       "hint": "The process of learning in school.",
++       "explanation": "Education is the correct spelling."
++     },
++     {
++       "id": "q-verbal-5",
++       "type": "multiple_choice",
++       "difficulty": "hard",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "Psychology",
++       "options": ["Psycology", "Psychology", "Phsychology", "Sychology"],
++       "points": 30,
++       "hint": "The study of the mind and behavior.",
++       "explanation": "Psychology is the correct spelling."
++     },
++     {
++       "id": "q-verbal-6",
++       "type": "multiple_choice",
++       "difficulty": "hard",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "Mathematics",
++       "options": ["Mathmatics", "Mathemetics", "Mathematics", "Mathemathics"],
++       "points": 30,
++       "hint": "The study of numbers and shapes.",
++       "explanation": "Mathematics is the correct spelling."
++     },
++     {
++       "id": "q-verbal-7",
++       "type": "multiple_choice",
++       "difficulty": "expert",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "Entrepreneur",
++       "options": ["Entrepeneur", "Entreprenuer", "Entrepreneur", "Enterprenuer"],
++       "points": 50,
++       "hint": "A person who starts and runs a business.",
++       "explanation": "Entrepreneur is the correct spelling."
++     },
++     {
++       "id": "q-verbal-8",
++       "type": "multiple_choice",
++       "difficulty": "expert",
++       "question": "Which word is spelled correctly?",
++       "correctAnswer": "Pronunciation",
++       "options": ["Pronounciation", "Pronunciation", "Pronuncication", "Pronounceation"],
++       "points": 50,
++       "hint": "The way a word is spoken.",
++       "explanation": "Pronunciation is the correct spelling."
++     }
++   ],
++   "career": [
++     {
++       "id": "q-career-1",
++       "type": "multiple_choice",
++       "difficulty": "easy",
++       "question": "In Law, what do we call the person who is accused in court?",
++       "correctAnswer": "Defendant",
++       "options": ["Plaintiff", "Defendant", "Judge", "Jury"],
++       "points": 10,
++       "hint": "This person defends themselves against charges.",
++       "explanation": "The defendant is the person accused in a court case.",
++       "career": "law"
++     },
++     {
++       "id": "q-career-2",
++       "type": "multiple_choice",
++       "difficulty": "easy",
++       "question": "In IT, what does CPU stand for?",
++       "correctAnswer": "Central Processing Unit",
++       "options": ["Central Processing Unit", "Computer Personal Unit", "Central Program Utility", "Core Processing Unit"],
++       "points": 10,
++       "hint": "It's the brain of the computer.",
++       "explanation": "CPU stands for Central Processing Unit, the main processor of a computer.",
++       "career": "it"
++     },
++     {
++       "id": "q-career-3",
++       "type": "multiple_choice",
++       "difficulty": "medium",
++       "question": "In Law, who brings a case against another in a court of law?",
++       "correctAnswer": "Plaintiff",
++       "options": ["Defendant", "Plaintiff", "Witness", "Bailiff"],
++       "points": 20,
++       "hint": "This person complains or files the lawsuit.",
++       "explanation": "The plaintiff is the person who initiates a lawsuit.",
++       "career": "law"
++     },
++     {
++       "id": "q-career-4",
++       "type": "multiple_choice",
++       "difficulty": "medium",
++       "question": "In IT, what is a firewall used for?",
++       "correctAnswer": "Network security",
++       "options": ["Data storage", "Network security", "Code compilation", "File sharing"],
++       "points": 20,
++       "hint": "It protects your network from threats.",
++       "explanation": "A firewall is a network security system that monitors and controls incoming and outgoing network traffic.",
++       "career": "it"
++     },
++     {
++       "id": "q-career-5",
++       "type": "multiple_choice",
++       "difficulty": "hard",
++       "question": "In Aviation, what does ATC stand for?",
++       "correctAnswer": "Air Traffic Control",
++       "options": ["Automatic Transmission Control", "Air Traffic Control", "Aviation Technical Center", "Airborne Transport Command"],
++       "points": 30,
++       "hint": "They guide pilots and manage air traffic.",
++       "explanation": "ATC stands for Air Traffic Control, which manages aircraft movements.",
++       "career": "aviation"
++     },
++     {
++       "id": "q-career-6",
++       "type": "multiple_choice",
++       "difficulty": "hard",
++       "question": "In Medicine, what is the process of identifying a disease called?",
++       "correctAnswer": "Diagnosis",
++       "options": ["Prognosis", "Diagnosis", "Treatment", "Therapy"],
++       "points": 30,
++       "hint": "Doctors do this to figure out what's wrong.",
++       "explanation": "Diagnosis is the identification of the nature of an illness or other problem.",
++       "career": "medical"
++     },
++     {
++       "id": "q-career-7",
++       "type": "multiple_choice",
++       "difficulty": "expert",
++       "question": "In Law, what is a legal document ordering someone to attend court called?",
++       "correctAnswer": "Subpoena",
++       "options": ["Warrant", "Subpoena", "Affidavit", "Summons"],
++       "points": 50,
++       "hint": "It compels a witness to appear in court.",
++       "explanation": "A subpoena is a legal document ordering someone to attend court as a witness.",
++       "career": "law"
++     },
++     {
++       "id": "q-career-8",
++       "type": "multiple_choice",
++       "difficulty": "expert",
++       "question": "In Police work, what is the scientific analysis of evidence called?",
++       "correctAnswer": "Forensics",
++       "options": ["Investigation", "Forensics", "Surveillance", "Interrogation"],
++       "points": 50,
++       "hint": "CSI uses these scientific methods.",
++       "explanation": "Forensics is the application of scientific methods and techniques to investigate crimes.",
++       "career": "police"
++     },
++     {
++       "id": "q-career-9",
++       "type": "multiple_choice",
++       "difficulty": "medium",
++       "question": "In Police work, what are the rights read to someone upon arrest called?",
++       "correctAnswer": "Miranda Rights",
++       "options": ["Constitutional Rights", "Miranda Rights", "Legal Rights", "Arrest Rights"],
++       "points": 20,
++       "hint": "You have the right to remain silent...",
++       "explanation": "Miranda Rights inform arrested persons of their constitutional rights.",
++       "career": "police"
++     },
++     {
++       "id": "q-career-10",
++       "type": "multiple_choice",
++       "difficulty": "expert",
++       "question": "In IT, what does API stand for?",
++       "correctAnswer": "Application Programming Interface",
++       "options": ["Application Programming Interface", "Advanced Program Integration", "Automated Process Interface", "Application Process Integration"],
++       "points": 50,
++       "hint": "It allows different software to communicate.",
++       "explanation": "API stands for Application Programming Interface, which allows different applications to communicate with each other.",
++       "career": "it"
++     }
++   ]
++ }
++ 
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Great! Now let me create the questions loader library and the API route.</details></think>
+
+---
+
+Now I'll create the question loader library:
+
+---
+
+Tool use: **write**
+
+
+<details><summary>Edit file: src/lib/questions.ts</summary>
+
+**Chunk 1**
+Lines added: 137, lines removed: 1
+
+```diff
+@@ -1,1 +1,137 @@
+- 
++ import { Question, QuestionCategory, DifficultyLevel, QuestionType, CareerType } from '@/types/game';
++ 
++ interface QuestionBank {
++   quantitative: Question[];
++   verbal: Question[];
++   career: Question[];
++ }
++ 
++ /**
++  * Fetch questions from the API route
++  * Falls back to local import if API fails
++  */
++ export async function fetchQuestions(category: QuestionCategory): Promise<Question[]> {
++   try {
++     const res = await fetch('/api/questions', { 
++       cache: 'no-store',
++       headers: {
++         'Content-Type': 'application/json',
++       }
++     });
++     
++     if (!res.ok) {
++       throw new Error(`Failed to fetch questions: ${res.status}`);
++     }
++     
++     const data: QuestionBank = await res.json();
++     const questions = data[category as keyof QuestionBank] || [];
++     
++     // Normalize and validate questions
++     return questions
++       .map(q => normalizeQuestion(q, category))
++       .filter((q): q is Question => q !== null);
++   } catch (error) {
++     console.error('Error fetching questions from API:', error);
++     
++     // Fallback to local import
++     try {
++       const bankModule = await import('@/data/questions.json');
++       const bank: QuestionBank = bankModule.default;
++       const questions = bank[category as keyof QuestionBank] || [];
++       
++       return questions
++         .map(q => normalizeQuestion(q, category))
++         .filter((q): q is Question => q !== null);
++     } catch (fallbackError) {
++       console.error('Error loading questions from local file:', fallbackError);
++       return [];
++     }
++   }
++ }
++ 
++ /**
++  * Normalize and validate a question object
++  * Ensures all required fields are present and properly typed
++  */
++ export function normalizeQuestion(q: any, category: QuestionCategory): Question | null {
++   try {
++     // Validate required fields
++     if (!q || !q.id || !q.question || !q.correctAnswer || typeof q.points !== 'number') {
++       console.warn('Invalid question:', q);
++       return null;
++     }
++ 
++     // Determine question type
++     const type = q.type as QuestionType || QuestionType.MULTIPLE_CHOICE;
++     
++     // Validate difficulty
++     const difficulty = Object.values(DifficultyLevel).includes(q.difficulty)
++       ? q.difficulty as DifficultyLevel
++       : DifficultyLevel.EASY;
++ 
++     // Build normalized question
++     const normalized: Question = {
++       id: String(q.id),
++       category,
++       type,
++       difficulty,
++       question: String(q.question),
++       correctAnswer: String(q.correctAnswer),
++       points: Number(q.points) || 0,
++     };
++ 
++     // Add optional fields if present
++     if (q.options && Array.isArray(q.options)) {
++       normalized.options = q.options.map(String);
++     }
++ 
++     if (q.hint) {
++       normalized.hint = String(q.hint);
++     }
++ 
++     if (q.explanation) {
++       normalized.explanation = String(q.explanation);
++     }
++ 
++     if (q.career && Object.values(CareerType).includes(q.career)) {
++       normalized.career = q.career as CareerType;
++     }
++ 
++     return normalized;
++   } catch (error) {
++     console.error('Error normalizing question:', error, q);
++     return null;
++   }
++ }
++ 
++ /**
++  * Filter questions by difficulty level
++  */
++ export function filterByDifficulty(
++   questions: Question[],
++   difficulty: DifficultyLevel
++ ): Question[] {
++   return questions.filter(q => q.difficulty === difficulty);
++ }
++ 
++ /**
++  * Get random questions from a list
++  */
++ export function getRandomQuestions(
++   questions: Question[],
++   count: number
++ ): Question[] {
++   const shuffled = [...questions].sort(() => Math.random() - 0.5);
++   return shuffled.slice(0, count);
++ }
++ 
++ /**
++  * Filter career questions by career type
++  */
++ export function filterByCareer(
++   questions: Question[],
++   career: CareerType
++ ): Question[] {
++   return questions.filter(q => q.career === career);
++ }
++ 
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me create the API route for questions.</details></think>
+
+---
+
+Now I'll create the API route:
+
+---
+
+Tool use: **write**
+
+
+<details><summary>Edit file: src/app/api/questions/route.ts</summary>
+
+**Chunk 1**
+Lines added: 58, lines removed: 1
+
+```diff
+@@ -1,1 +1,58 @@
+- 
++ import { NextResponse } from 'next/server';
++ import questionsData from '@/data/questions.json';
++ 
++ /**
++  * GET /api/questions
++  * Returns the questions bank from JSON file
++  * This simulates loading from a backend/database
++  */
++ export async function GET() {
++   try {
++     // Simulate slight delay as if fetching from database
++     await new Promise(resolve => setTimeout(resolve, 100));
++     
++     // Return questions with proper headers
++     return NextResponse.json(questionsData, {
++       status: 200,
++       headers: {
++         'Content-Type': 'application/json',
++         'Cache-Control': 'no-store, max-age=0',
++       },
++     });
++   } catch (error) {
++     console.error('Error loading questions:', error);
++     
++     return NextResponse.json(
++       { 
++         error: 'Failed to load questions',
++         message: error instanceof Error ? error.message : 'Unknown error'
++       },
++       { status: 500 }
++     );
++   }
++ }
++ 
++ /**
++  * Handle invalid methods
++  */
++ export async function POST() {
++   return NextResponse.json(
++     { error: 'Method not allowed' },
++     { status: 405 }
++   );
++ }
++ 
++ export async function PUT() {
++   return NextResponse.json(
++     { error: 'Method not allowed' },
++     { status: 405 }
++   );
++ }
++ 
++ export async function DELETE() {
++   return NextResponse.json(
++     { error: 'Method not allowed' },
++     { status: 405 }
++   );
++ }
++ 
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now I need to update the useGameState hook to use JSON questions first before falling back to generators.</details></think>
+
+---
+
+Now I'll update the game state hook to use JSON questions:
+
+---
+
+Tool use: **search_replace**
+
+
+<details><summary>Edit file: src/hooks/useGameState.ts</summary>
+
+**Chunk 1**
+Lines added: 29, lines removed: 4
+
+```diff
+@@ -50,11 +50,36 @@
+  
+    // Start new game session
+-   const startGameSession = useCallback((category: QuestionCategory, career?: CareerType, customCareerName?: string) => {
++   const startGameSession = useCallback(async (category: QuestionCategory, career?: CareerType, customCareerName?: string) => {
+      if (!user) return null;
+  
+      const difficulty = getDifficultyForAge(user.age);
+-     const questions = Array.from({ length: 10 }, () => 
+-       generateQuestion(category, difficulty, career, customCareerName)
+-     );
++     
++     // Try to load questions from JSON/API first
++     let questions: Question[] = [];
++     const cachedQuestions = (globalThis as any).__filla_questions__?.[category] as Question[] | undefined;
++     
++     if (cachedQuestions && cachedQuestions.length > 0) {
++       // Use cached JSON questions
++       const filtered = cachedQuestions.filter(q => {
++         // Filter by career if specified
++         if (career && category === QuestionCategory.CAREER) {
++           return q.career === career;
++         }
++         return true;
++       });
++       
++       // Select 10 random questions or use all if less than 10
++       const shuffled = [...filtered].sort(() => Math.random() - 0.5);
++       questions = shuffled.slice(0, 10);
++     }
++     
++     // Fallback to generated questions if not enough from JSON
++     if (questions.length < 10) {
++       const needed = 10 - questions.length;
++       const generated = Array.from({ length: needed }, () => 
++         generateQuestion(category, difficulty, career, customCareerName)
++       );
++       questions = [...questions, ...generated];
++     }
+  
+      const session: GameSession = {
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me update the game page to prefetch questions from the API.</details></think>
+
+---
+
+Now I'll update the game page to prefetch questions:
+
+---
+
+Tool use: **search_replace**
+
+
+<details><summary>Edit file: src/app/game/page.tsx</summary>
+
+**Chunk 1**
+Lines added: 28, lines removed: 4
+
+```diff
+@@ -40,11 +40,35 @@
+    const [showHint, setShowHint] = useState(false);
+    const [isPaused, setIsPaused] = useState(false);
++ 
++   // Prefetch questions from API
++   useEffect(() => {
++     if (!category) return;
++     
++     const prefetchQuestions = async () => {
++       try {
++         const res = await fetch('/api/questions', { cache: 'no-store' });
++         if (res.ok) {
++           const data = await res.json();
++           // Cache questions globally for startGameSession to use
++           (globalThis as any).__filla_questions__ = data;
++         }
++       } catch (error) {
++         console.error('Error prefetching questions:', error);
++         // Fallback to generated questions will be used
++       }
++     };
++     
++     prefetchQuestions();
++   }, [category]);
+  
+    useEffect(() => {
+      if (user && category && !currentSession) {
+-       const session = startGameSession(category, selectedCareer, customCareerName || undefined);
+-       if (session) {
+-         setCurrentQuestion(getNextQuestion());
+-       }
++       const initSession = async () => {
++         const session = await startGameSession(category, selectedCareer, customCareerName || undefined);
++         if (session) {
++           setCurrentQuestion(getNextQuestion());
++         }
++       };
++       initSession();
+      }
+    }, [user, category, selectedCareer, customCareerName, currentSession, startGameSession, getNextQuestion]);
+```
+
+</details>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me commit these changes to the feat/questions-json branch.</details></think>
+
+---
+
+Let me commit these changes:
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git add .
+```
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Good, now let me commit this.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git commit -m "feat: add JSON question bank and API endpoint
+
+- Add comprehensive question bank with 26 questions across categories
+- Create questions.json with quantitative, verbal, and career questions
+- Implement questions loader with API fallback
+- Add /api/questions endpoint for dynamic loading
+- Update useGameState to load questions from JSON first
+- Add question prefetching in game page
+- Include error handling and graceful fallbacks"
+```
+
+```
+PS C:\Users\USER\Filla> git commit -m "feat: add JSON question bank"
+[feat/questions-json 18349cb] feat: add JSON question bank
+ 5 files changed, 557 insertions(+), 8 deletions(-)
+ create mode 100644 src/app/api/questions/route.ts
+ create mode 100644 src/data/questions.json
+ create mode 100644 src/lib/questions.ts
+PS C:\Users\USER\Filla> q^C
+```
+
+---
+
+<think><details><summary>Thought Process</summary>The user seems to have canceled during the commit. The commit actually went through successfully. Let me continue pushing this branch and move to the next feature.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git push -u origin feat/questions-json
+```
+
+```
+PS C:\Users\USER\Filla> git push -u origin feat/questions-json
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (15/15), 6.02 KiB | 293.00 KiB/s, done.
+Total 15 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+remote:
+remote: Create a pull request for 'feat/questions-json' on GitHub by visiting:  
+remote:      https://github.com/Timeless-Dave/web3bridge-assessment-filla-/pull/new/feat/questions-json                                                         
+remote:
+To https://github.com/Timeless-Dave/web3bridge-assessment-filla-.git
+ * [new branch]      feat/questions-json -> feat/questions-json
+branch 'feat/questions-json' set up to track 'origin/feat/questions-json'.
+```
+
+---
+
+<think><details><summary>Thought Process</summary>Perfect! Now let me update the TODO and create the next branch for Firebase realtime leaderboard. First let me go back to main.</details></think>
+
+---
+
+Tool use: **todo_write**
+
+## Todo List
+
+- [x] Set up git remote and create main branch structure
+- [x] Create feat/questions-json branch: Add JSON question bank, loader, and API route
+- [-] Create feat/realtime-leaderboard branch: Add Firebase realtime database integration
+- [ ] Create feat/timer-and-enhancements branch: Add per-question timer and error handling
+- [ ] Create feat/tests-and-documentation branch: Add tests and comprehensive README
+- [ ] Push all branches and create detailed setup guide for user
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Now let me checkout main and create the Firebase realtime leaderboard branch.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git checkout main
+```
+
+```
+PS C:\Users\USER\Filla> git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+```
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Good! Now let me create the Firebase realtime leaderboard branch.</details></think>
+
+---
+
+Tool use: **run_terminal_cmd**
+
+```bash
+git checkout -b feat/realtime-leaderboard
+```
+
+```
+PS C:\Users\USER\Filla> git checkout -b feat/realtime-leaderboard
+Switched to a new branch 'feat/realtime-leaderboard'
+```
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+
+
+Perfect! Now let me create the Firebase realtime database integration. I'll create a library for Firebase interactions.</details></think>
+
+---
+
+Now I'll create the Firebase realtime database integration:
+
+---
+
+Cancelled
+
+---
+
+
+
+---
+
+_**User (2025-10-20 11:15Z)**_
+
+check and proceed
+
+Create feat/realtime-leaderboard branch: Add Firebase realtime database integration
+Create feat/timer-and-enhancements branch: Add per-question timer and error handling
+Create feat/tests-and-documentation branch: Add tests and comprehensive README
+Push all branches and create detailed setup guide for user
+
+---
+
+_**Assistant (claude-4.5-sonnet-thinking)**_
+
 
 
 ---

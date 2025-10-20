@@ -19,10 +19,38 @@ export default function GameResultsPage() {
   const { user, currentSession } = useGameState();
 
   useEffect(() => {
-    if (currentSession?.completed) {
+    if (currentSession?.completed && user) {
       triggerCelebration('levelUp');
+      
+      // Submit score to realtime leaderboard
+      const submitToLeaderboard = async () => {
+        try {
+          const { submitScore } = await import('@/lib/realtime');
+          const { updateLeaderboard } = await import('@/lib/storage');
+          
+          const entry = {
+            userId: user.id,
+            name: user.name || 'Anonymous',
+            score: currentSession.score,
+            rank: 0, // Will be calculated by the system
+            gems: user.gems,
+            level: user.level,
+            streak: user.streak,
+          };
+          
+          // Submit to Firebase (or localStorage fallback)
+          await submitScore(entry);
+          
+          // Also update local leaderboard
+          updateLeaderboard(entry);
+        } catch (error) {
+          console.error('Error submitting score to leaderboard:', error);
+        }
+      };
+      
+      submitToLeaderboard();
     }
-  }, [currentSession]);
+  }, [currentSession, user]);
 
   if (!user || !currentSession) {
     return (

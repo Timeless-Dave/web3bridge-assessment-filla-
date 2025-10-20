@@ -27,9 +27,30 @@ export default function LeaderboardPage() {
   const [timeFrame, setTimeFrame] = useState<'daily' | 'weekly' | 'allTime'>('allTime');
 
   useEffect(() => {
-    // Load leaderboard data
-    const data = loadLeaderboard();
-    setLeaderboard(data);
+    let unsubscribe: (() => void) | undefined;
+    
+    // Subscribe to realtime leaderboard updates
+    const setupLeaderboard = async () => {
+      try {
+        const { subscribeLeaderboard } = await import('@/lib/realtime');
+        unsubscribe = await subscribeLeaderboard((entries) => {
+          setLeaderboard(entries);
+        });
+      } catch (error) {
+        console.error('Error setting up leaderboard:', error);
+        // Fallback to localStorage
+        const data = loadLeaderboard();
+        setLeaderboard(data);
+      }
+    };
+    
+    setupLeaderboard();
+    
+    return () => {
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
   }, []);
 
   const getRankIcon = (rank: number) => {
