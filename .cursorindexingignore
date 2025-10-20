@@ -1,5 +1,5 @@
 # Cursor Indexing Ignore Configuration
-# Updated: January 2025 - Web3Bridge Assessment
+# Updated:  Web3Bridge Assessment
 # Don't index SpecStory auto-save files, but allow explicit context inclusion via @ references
 .specstory/**
 

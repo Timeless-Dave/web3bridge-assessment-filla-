@@ -1,6 +1,6 @@
 /**
  * PostCSS Configuration for Filla Quiz Game
- * Updated: January 2025 - Web3Bridge Assessment
+ * Updated:  Web3Bridge Assessment
  * Processes Tailwind CSS and adds vendor prefixes
  */
 module.exports = {

@@ -23,25 +23,25 @@ export async function fetchQuestions(category: QuestionCategory): Promise<Questi
       throw new Error(`Failed to fetch questions: ${res.status}`);
     }
     
-    const data: QuestionBank = await res.json();
-    const questions = data[category as keyof QuestionBank] || [];
+    const data: any = await res.json();
+    const questions = data[category] || [];
     
     // Normalize and validate questions
     return questions
-      .map(q => normalizeQuestion(q, category))
-      .filter((q): q is Question => q !== null);
+      .map((q: any) => normalizeQuestion(q, category))
+      .filter((q: any): q is Question => q !== null);
   } catch (error) {
     console.error('Error fetching questions from API:', error);
     
     // Fallback to local import
     try {
       const bankModule = await import('@/data/questions.json');
-      const bank: QuestionBank = bankModule.default;
-      const questions = bank[category as keyof QuestionBank] || [];
+      const bank: any = bankModule.default;
+      const questions = bank[category] || [];
       
       return questions
-        .map(q => normalizeQuestion(q, category))
-        .filter((q): q is Question => q !== null);
+        .map((q: any) => normalizeQuestion(q, category))
+        .filter((q: any): q is Question => q !== null);
     } catch (fallbackError) {
       console.error('Error loading questions from local file:', fallbackError);
       return [];

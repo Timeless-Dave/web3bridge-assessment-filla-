@@ -1,6 +1,6 @@
 /**
  * Next.js Configuration for Filla Quiz Game
- * Updated: January 2025 - Web3Bridge Assessment
+ * Updated:  Web3Bridge Assessment
  * @type {import('next').NextConfig}
  */
 const nextConfig = {

@@ -1,6 +1,6 @@
 /**
  * Tailwind CSS Configuration for Filla Quiz Game
- * Updated: January 2025 - Web3Bridge Assessment
+ * Updated:  Web3Bridge Assessment
  * Custom color palette and animations for educational gaming experience
  * @type {import('tailwindcss').Config}
  */

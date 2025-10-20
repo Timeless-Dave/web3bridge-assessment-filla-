@@ -1,6 +1,6 @@
 {
   // TypeScript Configuration for Filla Quiz Game
-  // Updated: January 2025 - Web3Bridge Assessment
+  // Updated:  Web3Bridge Assessment
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "es6"],
@@ -26,6 +26,6 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "vitest.config.ts", "vitest.setup.ts"]
 }
 

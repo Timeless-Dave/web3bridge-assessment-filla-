@@ -8,7 +8,7 @@ An interactive educational quiz game built with Next.js, TypeScript, and React. 
 
 ## 🎉 Recent Updates
 
-### Latest Changes (January 2025)
+### Latest Changes ( 2025)
 
 #### Pull Requests Merged
 - **#4** - Tests and Documentation - _4 minutes ago_
