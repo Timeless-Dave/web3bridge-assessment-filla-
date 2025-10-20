@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { ClientLayout } from '@/components/ClientLayout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,7 +31,9 @@ export default function RootLayout({
             <div className="absolute bottom-20 right-1/3 w-14 h-14 bg-secondary-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '0.5s' }}></div>
           </div>
           <div className="relative z-10">
-            {children}
+            <ClientLayout>
+              {children}
+            </ClientLayout>
           </div>
         </div>
       </body>

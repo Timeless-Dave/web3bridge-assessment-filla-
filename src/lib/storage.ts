@@ -18,9 +18,18 @@ export class GameStorage {
     
     try {
       const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : defaultValue;
+      if (!item) return defaultValue;
+      
+      const parsed = JSON.parse(item);
+      return parsed;
     } catch (error) {
-      console.error('Error reading from localStorage:', error);
+      console.error(`Error reading from localStorage (key: ${key}):`, error);
+      // Attempt to clear corrupted data
+      try {
+        localStorage.removeItem(key);
+      } catch (clearError) {
+        console.error('Failed to clear corrupted localStorage item:', clearError);
+      }
       return defaultValue;
     }
   }
@@ -29,9 +38,29 @@ export class GameStorage {
     if (typeof window === 'undefined') return;
     
     try {
-      localStorage.setItem(key, JSON.stringify(value));
+      const serialized = JSON.stringify(value);
+      localStorage.setItem(key, serialized);
     } catch (error) {
-      console.error('Error writing to localStorage:', error);
+      console.error(`Error writing to localStorage (key: ${key}):`, error);
+      
+      // Check if it's a quota exceeded error
+      if (error instanceof DOMException && 
+          (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED')) {
+        console.warn('localStorage quota exceeded. Attempting to clear old data...');
+        
+        // Try to clear some old session data
+        try {
+          const sessions = this.get<any[]>(STORAGE_KEYS.SESSIONS, []);
+          if (sessions.length > 10) {
+            // Keep only last 10 sessions
+            this.set(STORAGE_KEYS.SESSIONS, sessions.slice(-10));
+            // Retry the original operation
+            localStorage.setItem(key, JSON.stringify(value));
+          }
+        } catch (retryError) {
+          console.error('Failed to recover from quota error:', retryError);
+        }
+      }
     }
   }
 
