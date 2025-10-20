@@ -6,6 +6,25 @@ An interactive educational quiz game built with Next.js, TypeScript, and React. 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
 
+## 🎉 Recent Updates
+
+### Latest Changes (January 2025)
+
+#### Pull Requests Merged
+- **#4** - Tests and Documentation - _4 minutes ago_
+- **#3** - Timer and Error Handling - _13 minutes ago_
+- **#2** - Realtime Leaderboard Integration - _13 minutes ago_
+- **#1** - Dynamic Question System - _Today_
+
+#### What's New
+- ✨ **Realtime Leaderboard** - Firebase Realtime Database integration with automatic score synchronization
+- ⏱️ **Question Timer** - 30-second countdown per question with visual feedback
+- 🧪 **Testing Suite** - Vitest framework with 30+ comprehensive test cases
+- 🛡️ **Error Boundaries** - React error boundaries for graceful error handling and recovery
+- 📊 **JSON Questions** - 26 pre-made questions loaded from JSON with API endpoint
+- 💾 **Smart Storage** - Enhanced localStorage with quota management and auto-cleanup
+- 🎨 **UI Improvements** - Better animations, responsive design, and user feedback
+
 ## 🌟 Features
 
 - **Multiple Question Categories**
@@ -39,6 +58,25 @@ An interactive educational quiz game built with Next.js, TypeScript, and React. 
   - Storage quota management
   - Helpful error messages
 
+## ⚡ Quick Start
+
+```bash
+# 1. Clone and install
+git clone https://github.com/Timeless-Dave/web3bridge-assessment-filla-.git
+cd web3bridge-assessment-filla-
+npm install
+
+# 2. (Optional) Set up Firebase for realtime leaderboard
+# Create .env.local with your Firebase credentials
+# See detailed instructions below
+
+# 3. Run the app
+npm run dev
+# Visit http://localhost:3000
+```
+
+**No Firebase?** No problem! The app works perfectly with localStorage.
+
 ## 🎮 How to Play
 
 1. **Sign In**: Enter your name (optional) and age range
@@ -64,27 +102,56 @@ An interactive educational quiz game built with Next.js, TypeScript, and React. 
 
 2. **Install dependencies**
    ```bash
-   npm install
+npm install
    ```
 
-3. **Set up environment variables** (Optional - for Firebase)
+3. **Set up environment variables** (Optional - for Realtime Leaderboard)
    
-   Create a `.env.local` file in the root directory:
+   The app works perfectly without Firebase (using localStorage), but for realtime leaderboard functionality:
+   
+   **Option A: Quick Setup (For Testing)**
+   
+   Skip this step! The app will automatically use localStorage as a fallback.
+   
+   **Option B: Full Firebase Setup (For Production)**
+   
+   a. Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   
+   b. Enable Realtime Database:
+      - Go to Realtime Database → Create Database
+      - Choose location (e.g., us-central1)
+      - Start in **test mode** for development
+   
+   c. Get your Firebase configuration:
+      - Project Settings (⚙️) → General
+      - Scroll to "Your apps" → Web app
+      - Copy the configuration values
+   
+   d. Create `.env.local` in your project root:
    ```bash
-   NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+   # Copy these lines and replace with your Firebase values
+   NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key_here
    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
    NEXT_PUBLIC_FIREBASE_DATABASE_URL=https://your_project_id-default-rtdb.firebaseio.com
-   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id_here
+   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id_here
    ```
    
-   See [ENV_SETUP.md](./ENV_SETUP.md) for detailed Firebase setup instructions.
+   e. (Optional) Install Firebase SDK if not already installed:
+   ```bash
+   npm install firebase
+   ```
    
-   **Note**: The app works perfectly without Firebase - it will use localStorage as fallback.
+   📖 For detailed Firebase setup with screenshots, see [ENV_SETUP.md](./ENV_SETUP.md)
+   
+   **Important**: 
+   - ✅ Works without Firebase (localStorage fallback)
+   - ✅ No Firebase needed for local development
+   - ✅ Only needed for realtime leaderboard sync across devices
 
 4. **Run the development server**
    ```bash
-   npm run dev
+npm run dev
    ```
 
 5. **Open your browser**
@@ -120,8 +187,19 @@ npm start
 
 1. Push your code to GitHub
 2. Import the repository on [Vercel](https://vercel.com)
-3. Add Firebase environment variables in Project Settings
-4. Deploy!
+3. Configure project settings:
+   - Framework Preset: **Next.js**
+   - Build Command: `npm run build`
+   - Output Directory: `.next`
+4. **(Optional)** Add Firebase environment variables in Project Settings → Environment Variables:
+   ```
+   NEXT_PUBLIC_FIREBASE_API_KEY
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+   NEXT_PUBLIC_FIREBASE_DATABASE_URL
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID
+   NEXT_PUBLIC_FIREBASE_APP_ID
+   ```
+5. Click "Deploy"!
 
 ### Other Platforms
 
@@ -130,6 +208,8 @@ The app can be deployed to any platform that supports Next.js:
 - AWS Amplify
 - Railway
 - Render
+
+**Note**: If deploying without Firebase, the leaderboard will use localStorage (device-local only).
 
 ## 🛠️ Tech Stack
 
