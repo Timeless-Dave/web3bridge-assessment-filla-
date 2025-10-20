@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { Trophy, Medal, Star, Crown, Gem } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Navigation } from '@/components/layout/Navigation';
@@ -22,6 +23,7 @@ interface LeaderboardEntry {
 }
 
 export default function LeaderboardPage() {
+  const router = useRouter();
   const { user } = useGameState();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [timeFrame, setTimeFrame] = useState<'daily' | 'weekly' | 'allTime'>('allTime');
@@ -73,24 +75,11 @@ export default function LeaderboardPage() {
     return 'bg-gray-100';
   };
 
-  const mockLeaderboard: LeaderboardEntry[] = [
-    { userId: '1', name: 'Alex Champion', score: 2450, rank: 1, gems: 156, level: 12, streak: 15 },
-    { userId: '2', name: 'Sarah Brilliant', score: 2230, rank: 2, gems: 134, level: 11, streak: 12 },
-    { userId: '3', name: 'Mike Genius', score: 1980, rank: 3, gems: 98, level: 10, streak: 8 },
-    { userId: '4', name: 'Emma Smart', score: 1750, rank: 4, gems: 87, level: 9, streak: 6 },
-    { userId: '5', name: 'David Quick', score: 1650, rank: 5, gems: 76, level: 8, streak: 5 },
-    ...(user ? [{ 
-      userId: user.id || 'user', 
-      name: user.name || 'You', 
-      score: 1200, 
-      rank: 8, 
-      gems: user.gems || 0, 
-      level: user.level || 1, 
-      streak: user.streak || 0 
-    }] : []),
-  ];
-
-  const displayLeaderboard = leaderboard.length > 0 ? leaderboard : mockLeaderboard;
+  // Use only real leaderboard data - no mock data
+  const displayLeaderboard = leaderboard;
+  
+  // Find current user's rank in the leaderboard
+  const userRank = displayLeaderboard.findIndex(entry => entry.userId === user?.id) + 1;
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-sunshine-50 via-coral-50 to-turquoise-50 relative overflow-hidden">
@@ -169,18 +158,19 @@ export default function LeaderboardPage() {
           </motion.div>
 
           {/* Top 3 Podium */}
-          <motion.div
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="relative mb-8"
-          >
-            {/* Podium Background */}
-            <div className="bg-gradient-to-b from-sunshine-100 to-turquoise-100 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
-              
-              {/* Podium Platforms */}
-              <div className="relative z-10 flex items-end justify-center space-x-6">
-                {displayLeaderboard.slice(0, 3).map((player, index) => {
+          {displayLeaderboard.length > 0 ? (
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.2 }}
+              className="relative mb-8"
+            >
+              {/* Podium Background */}
+              <div className="bg-gradient-to-b from-sunshine-100 to-turquoise-100 rounded-3xl p-8 relative overflow-hidden">
+                <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
+                
+                {/* Podium Platforms */}
+                <div className="relative z-10 flex items-end justify-center space-x-6">
+                  {displayLeaderboard.slice(0, 3).map((player, index) => {
                   const positions = [1, 0, 2]; // Arrange as 2nd, 1st, 3rd
                   const actualIndex = positions[index];
                   const actualPlayer = displayLeaderboard[actualIndex];
@@ -253,8 +243,33 @@ export default function LeaderboardPage() {
               </div>
             </div>
           </motion.div>
+          ) : (
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.2 }}
+              className="text-center py-12"
+            >
+              <Card className="bg-white/70 backdrop-blur-sm">
+                <div className="text-6xl mb-4">🎮</div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  No Scores Yet!
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Be the first to play and climb to the top of the leaderboard!
+                </p>
+                <Button
+                  onClick={() => router.push('/')}
+                  size="lg"
+                  className="bg-gradient-to-r from-coral-500 to-coral-600"
+                >
+                  Play Now 🚀
+                </Button>
+              </Card>
+            </motion.div>
+          )}
 
           {/* Full Leaderboard */}
+          {displayLeaderboard.length > 0 && (
           <motion.div
             variants={stagger}
             initial="initial"
@@ -321,9 +336,10 @@ export default function LeaderboardPage() {
               </motion.div>
             ))}
           </motion.div>
+          )}
 
-          {/* Your Rank Card */}
-          {user && (
+          {/* Your Rank Card - Only show if user has played */}
+          {user && userRank > 0 && (
             <motion.div
               {...fadeInUp}
               transition={{ delay: 0.8 }}
@@ -362,9 +378,13 @@ export default function LeaderboardPage() {
                           animate={{ scale: [1, 1.1, 1] }}
                           transition={{ duration: 2, repeat: Infinity }}
                         >
-                          #8
+                          {userRank > 0 ? `#${userRank}` : '--'}
                         </motion.div>
-                        <div className="text-sm opacity-90">of 1,247 players</div>
+                        <div className="text-sm opacity-90">
+                          {displayLeaderboard.length > 0 
+                            ? `of ${displayLeaderboard.length} player${displayLeaderboard.length !== 1 ? 's' : ''}`
+                            : 'Play to join!'}
+                        </div>
                       </div>
                     </div>
                   </div>
