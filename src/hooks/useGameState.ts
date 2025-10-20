@@ -49,13 +49,38 @@ export const useGameState = () => {
   }, [user]);
 
   // Start new game session
-  const startGameSession = useCallback((category: QuestionCategory, career?: CareerType, customCareerName?: string) => {
+  const startGameSession = useCallback(async (category: QuestionCategory, career?: CareerType, customCareerName?: string) => {
     if (!user) return null;
 
     const difficulty = getDifficultyForAge(user.age);
-    const questions = Array.from({ length: 10 }, () => 
-      generateQuestion(category, difficulty, career, customCareerName)
-    );
+    
+    // Try to load questions from JSON/API first
+    let questions: Question[] = [];
+    const cachedQuestions = (globalThis as any).__filla_questions__?.[category] as Question[] | undefined;
+    
+    if (cachedQuestions && cachedQuestions.length > 0) {
+      // Use cached JSON questions
+      const filtered = cachedQuestions.filter(q => {
+        // Filter by career if specified
+        if (career && category === QuestionCategory.CAREER) {
+          return q.career === career;
+        }
+        return true;
+      });
+      
+      // Select 10 random questions or use all if less than 10
+      const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+      questions = shuffled.slice(0, 10);
+    }
+    
+    // Fallback to generated questions if not enough from JSON
+    if (questions.length < 10) {
+      const needed = 10 - questions.length;
+      const generated = Array.from({ length: needed }, () => 
+        generateQuestion(category, difficulty, career, customCareerName)
+      );
+      questions = [...questions, ...generated];
+    }
 
     const session: GameSession = {
       id: `session_${Date.now()}_${Math.random()}`,
