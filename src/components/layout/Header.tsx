@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
     <motion.header
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="bg-gradient-to-r from-coral-400 via-purple-500 to-turquoise-400 shadow-lg sticky top-0 z-40 overflow-hidden"
+      className="bg-gradient-to-r from-coral-400 via-purple-500 to-turquoise-400 shadow-lg sticky top-0 z-50 overflow-hidden backdrop-blur-md"
     >
       {/* Background effects */}
       <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
